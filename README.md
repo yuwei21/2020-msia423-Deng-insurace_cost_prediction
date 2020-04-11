@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-- [Project Charter]
+- [Project Charter](#directory-structure)
 - [Running the app](#running-the-app)
   * [1. Initialize the database](#1-initialize-the-database)
     + [Create the database with a single song](#create-the-database-with-a-single-song)
@@ -19,7 +19,49 @@
 
 <!-- tocstop -->
 
+## Directory structure 
 
+```
+├── README.md                         <- You are here
+├── api
+│   ├── static/                       <- CSS, JS files that remain static
+│   ├── templates/                    <- HTML (or other code) that is templated and changes based on a set of inputs
+│   ├── boot.sh                       <- Start up script for launching app in Docker container.
+│   ├── Dockerfile                    <- Dockerfile for building image to run app  
+│
+├── config                            <- Directory for configuration files 
+│   ├── local/                        <- Directory for keeping environment variables and other local configurations that *do not sync** to Github 
+│   ├── logging/                      <- Configuration of python loggers
+│   ├── flaskconfig.py                <- Configurations for Flask API 
+│
+├── data                              <- Folder that contains data used or generated. Only the external/ and sample/ subdirectories are tracked by git. 
+│   ├── external/                     <- External data sources, usually reference data,  will be synced with git
+│   ├── sample/                       <- Sample data used for code development and testing, will be synced with git
+│
+├── deliverables/                     <- Any white papers, presentations, final work products that are presented or delivered to a stakeholder 
+│
+├── docs/                             <- Sphinx documentation based on Python docstrings. Optional for this project. 
+│
+├── figures/                          <- Generated graphics and figures to be used in reporting, documentation, etc
+│
+├── models/                           <- Trained model objects (TMOs), model predictions, and/or model summaries
+│
+├── notebooks/
+│   ├── archive/                      <- Develop notebooks no longer being used.
+│   ├── deliver/                      <- Notebooks shared with others / in final state
+│   ├── develop/                      <- Current notebooks being used in development.
+│   ├── template.ipynb                <- Template notebook for analysis with useful imports, helper functions, and SQLAlchemy setup. 
+│
+├── reference/                        <- Any reference material relevant to the project
+│
+├── src/                              <- Source data for the project 
+│
+├── test/                             <- Files necessary for running model tests (see documentation below) 
+│
+├── app.py                            <- Flask wrapper for running the model 
+├── run.py                            <- Simplifies the execution of one or more of the src scripts  
+├── requirements.txt                  <- Python package dependencies 
+```
 
 ## Running the app
 ### 1. Initialize the database 
