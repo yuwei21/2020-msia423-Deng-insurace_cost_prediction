@@ -18,6 +18,9 @@ Create an interative web application to predict chances of graduate admission gi
 - The sucess of the application will be measured by the number of visits to app in an interval time (especially application seasons) and the number of new user engagements throughout the time. 
 ## Backlog 
 
+
+## Icebox 
+
 ## Data Sources
 
 ## Project Initialization
