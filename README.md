@@ -3,6 +3,7 @@
 <!-- toc -->
 
 - [Project Charter](#project-charter)
+- [Backlog](#backlog)
 - [Data Sources](#data-sources)
 - [Project Initialization](#project-initialization)
 - [Testing](#testing)
@@ -15,7 +16,7 @@ Create an interative web application to predict chances of graduate admission gi
 ### Success Criteria
 - The sucess of the regression model will be based on achieving a RMSE below 0.1 and an R-Squared above 0.75 on the test dataset. 
 - The sucess of the application will be measured by the number of visits to app in an interval time (especially application seasons) and the number of new user engagements throughout the time. 
-### Planning
+## Backlog 
 
 ## Data Sources
 
