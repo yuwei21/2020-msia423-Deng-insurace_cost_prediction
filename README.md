@@ -3,7 +3,6 @@
 <!-- toc -->
 
 - [Project Charter]
-- [Planning]
 - [Running the app](#running-the-app)
   * [1. Initialize the database](#1-initialize-the-database)
     + [Create the database with a single song](#create-the-database-with-a-single-song)
