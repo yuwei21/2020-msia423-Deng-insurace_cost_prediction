@@ -48,7 +48,7 @@ From the perspective of insurance companies, the insurance company must collect 
 ### Epic 1: Brainstrom Core Functionality (4 pts)
 - Story 1: Create history page 
     - **Icebox**
-### Epic 1: Create App Front End 
+### Epic 2: Create App Front End 
 - Story 1: Create web app using HTML, CSS, etc. (8 pts)
     - **Backlog**
     - Create landing page
@@ -58,7 +58,7 @@ From the perspective of insurance companies, the insurance company must collect 
     - **Backlog**
 - Story 4: Document Web Applications 
     - **Icebox**
-### Epic 2: Online Deployment 
+### Epic 3: Online Deployment 
 - Story 1: Deploying web app (Flask) on AWS (8 pts)
     - **Backlog**
 - Story 2: Creating an RDS instance (4 pts) 
@@ -66,7 +66,7 @@ From the perspective of insurance companies, the insurance company must collect 
 - Story 3: Test web applications (8 pts) 
     - **Backlog**
     - Unit Testing, Configured reproducibility tests, etc.     
-### Epic 3: Final Presentation 
+### Epic 4: Final Presentation 
 - Story 1: Presentation slides (4 pts)
     - **Backlog**
 
