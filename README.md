@@ -22,13 +22,13 @@ The cost of treatment of each patient depends on many factors: age, type of clin
     -**Backlog**
     - Link to data source:[https://www.kaggle.com/mirichoi0218/insurance]
 - Story 2: Perform Early Exploratory Analysis (4 pts) **(Planned for the next 2 weeks)**
-    -**Backlog**
+    - **Backlog**
     - Conducting data cleaning and EDA
         - Data fromat (Variable structure) 
         - Checking missing values 
         - Feature engineering
 - Story 3: Model Fitting and Selection **(Planned for the next 2 weeks)**
-    -**Backlog**
+    - **Backlog**
     - Building regression models on randomly selected training data using Linear Regression, Random Forest and Gradient       Boosting (4 pts)
     - Tuning models to optimize performance 
     - Assessing and comparing models based on performance metrics (RMSE, R-Squared) on testing data (2 pts) 
@@ -36,7 +36,7 @@ The cost of treatment of each patient depends on many factors: age, type of clin
     - **Icebox**
 ### Epic 2: Exploring additional models 
 - Story 1: Build models like Neural Networks
-    -**Icebox**
+    - **Icebox**
 - Story 2: Conducting Unsupervised Learning
 ### Epic 3
     
