@@ -5,8 +5,6 @@
 - [Project Charter](#project-charter)
 - [Backlog](#backlog)
 - [Data Sources](#data-sources)
-- [Project Initialization](#project-initialization)
-- [Testing](#testing)
 
 ## Project Charter
 ### Vision
@@ -17,18 +15,42 @@ Create an interative web application to predict health care costs given a user's
 - The model will be evaluated by RMSE and R-Squared measures. The sucess of the regression model will be based on achieving an R-Squared above 0.8 on the test dataset. 
 - The sucess of the application from the business persective will be measured by the number of visits to app in an interval time and the number of new user engagements throughout the time. 
 ## Backlog 
-
 ### Initiatives
-
-
-Wine lovers always hope to spend their money on wines they will actually enjoy. However, without actually tasting the wine, it is often challenging for people to predict wine quality ahead of time. Even though a few famous wine critics do provide ratings on wine, those scores are still based on their subjective experience.
-
-The aim of this project is to investigate how the taste of wines are related to their measurable physiochemical properties (e.g. pH, volatile acidity, residual sugar, sulfur dioxide, etc.). Through various machine learning methods, the project will help to identify the most physiochemical properties that make a wine taste good as well as allow users to predict the quality of wines based on their physiochemical properties. In this way, users will be able to assess wine quality from a more objective perspective and make better buying decisions.
-
-The final web app would allow user to input values of the most important physiochemical properties of wine (either white or red) and return the predicted wine quality.
+The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients. It is also important to go deeply into what factors influence the charge of a specific patient. Besides, from the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
 ### Epics
+**Epic 1: Data Preparation** 
+- Story #1: Downloading the data files (red wine & white wine) from UCI Machine Learning Repository (1 pt) **(Planned for the next 2 weeks)**
+    - **Backlog**
+    - Link to data source:[https://archive.ics.uci.edu/ml/datasets/wine+quality]
+- Story #2: EDA and Data Cleaning (2 pts) **(Planned for the next 2 weeks)**
+    - **Backlog**
+    - Conducting exploratory data analysis (variable structures, distribution of variables, etc.)
+    - Performing data cleaning (null values, outliers, etc.)
+    
+**Epic 2: Modeling and Model Selection** 
+- Story #1: Building classification models on randomly selected training data using Random Forest, XGBoost, and Neural Networks (4 pts) **(Planned for the next 2 weeks)**
+    - **Backlog**
+- Story #2: Comparing models based on performance metrics (Accuracy) on testing data (2 pts) **(Planned for the next 2 weeks)**
+    - **Backlog**
+- Story #3: Exploring additional models (e.g. CNN, SVM)
+    -   **Icebox**
+- Story #4: Reviewing models with QA partner (4 pts)
+    - **Backlog**
+    
+**Epic 3: Online Deployment and Testing** 
+- Story #1: Web app UI design (8 pts)
+    - **Backlog**
+- Story #2: Deploying web app (Flask) on AWS (8 pts)
+    - **Backlog**
+- Story #3: Creating an RDS instance (4 pts)
+    - **Backlog**
+- Story #4: Testing (Unit tests and Configured reproducibility tests) (8 pts)
+    - **Backlog**
+    
+**Epic 4: Final Presentation**  
+- Story #1: Presentation slides (4 pts)
+    - **Backlog**
 
-## Icebox 
 
 ## Data Sources
 
