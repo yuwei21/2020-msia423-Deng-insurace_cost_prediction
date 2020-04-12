@@ -17,17 +17,17 @@ Create an interative web application to predict health care costs given a user's
 ## Backlog 
 ### Initiative 1
 The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients by building regression models. It is also important to go deeply into what factors influence the charge of a specific patient. 
-### Epic 1: Create and test models 
-- Story 1: Download the data files (Medical Cost Personal Dataset) from Kaggle (0 pts) **(Completed)** 
+### Epic 1: Create and test models **(Planned for the next 2 weeks)**
+- Story 1: Download the data files (Medical Cost Personal Dataset) from Kaggle (0 pts) 
     -**Backlog**
     - Link to data source:[https://www.kaggle.com/mirichoi0218/insurance]
-- Story 2: Perform Early Exploratory Analysis (4 pts) **(Planned for the next 2 weeks)**
+- Story 2: Perform Early Exploratory Analysis (4 pts) 
     - **Backlog**
     - Conduct data cleaning and EDA
         - Data fromat (Variable structure) 
         - Checking missing values 
         - Feature engineering
-- Story 3: Model Fitting and Selection **(Planned for the next 2 weeks)**
+- Story 3: Model Fitting and Selection 
     - **Backlog**
     - Building regression models on randomly selected training data using Linear Regression, Random Forest and Gradient       Boosting (4 pts)
     - Tune models to optimize performance 
@@ -44,8 +44,25 @@ The cost of treatment of each patient depends on many factors: age, type of clin
     - **Icebox**
     - Include interaction terms of features (e.g. obese * smoker, etc.) 
 ### Initiative 2: Web Application
-From the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the web appplication helps insurance companies have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
-### Epics
+From the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the web appplication helps insurance companies have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. People can also have a fair idea of their health condition and health care costs. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
+### Epic 1: Brainstrom Core Functionality (4 pts)
+### Epic 1: Create App Front End (8 pts)
+- Story 1: Create web app using HTML, CSS, etc. 
+    - **Backlog**
+    - Create landing page
+- Story 2: Improve Web app UI design 
+    - **Backlog**
+- Story 3: Test Web Applications
+    - **Backlog**
+- Story 4: Document Web Applications 
+### Epic 2: Online Deployment (8 pts)
+- Story 1: Deploying web app (Flask) on AWS
+    - **Backlog**
+    
+    
+    
+    
+
 
 **Epic 3: Online Deployment and Testing** 
 - Story #1: Web app UI design (8 pts)
