@@ -46,6 +46,8 @@ The cost of treatment of each patient depends on many factors: age, type of clin
 ### Initiative 2: Web Application
 From the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the web appplication helps insurance companies have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. People can also have a fair idea of their health condition and health care costs. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
 ### Epic 1: Brainstrom Core Functionality (4 pts)
+- Story 1: Create history page 
+    - **Icebox**
 ### Epic 1: Create App Front End 
 - Story 1: Create web app using HTML, CSS, etc. (8 pts)
     - **Backlog**
