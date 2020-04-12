@@ -40,9 +40,9 @@ The cost of treatment of each patient depends on many factors: age, type of clin
 - Story 2: Conducting Unsupervised Learning
     - **Icebox**
     - Perform clustering to explore the relationship between charges and predictors
-- Story 3: Include New Features
+- Story 3: Create New Features
     - **Icebox**
-    - Include the interaction term of features (e.g. obese * smoker, etc.) 
+    - Include interaction terms of features (e.g. obese * smoker, etc.) 
 ### Initiative 2: Web Application
 From the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
 ### Epics
