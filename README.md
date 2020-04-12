@@ -12,11 +12,12 @@
 ### Vision
 Help people gain a fair idea of the cost of their treatments billed by insurance companies. Help insurance companies determined the appropriate premium they should collect to make profits. 
 ### Mission
-Create an interative web application to predict health care costs given a user's input of factors that may influence the charge of a specific patient. The underlying model will be a regression model based on the Medical Cost Personal Dataset with 1338 observations from Kaggle. This application will assist insurance company in deciding the premiums they should collect
+Create an interative web application to predict health care costs given a user's input of factors that may influence the charge of a specific patient. The underlying model will be a regression model based on the Medical Cost Personal Dataset with 1338 observations from Kaggle. This application will assist insurance company in deciding the premiums they should collect to make profits.
 ### Success Criteria
-- The sucess of the regression model will be based on achieving a RMSE below 0.1 and an R-Squared above 0.75 on the test dataset. 
-- The sucess of the application from the business persective will be measured by the number of visits to app in an interval time (especially during application seasons) and the number of new user engagements throughout the time. 
+- The model will be evaluated by RMSE and R-Squared measures. The sucess of the regression model will be based on achieving an R-Squared above 0.8 on the test dataset. 
+- The sucess of the application from the business persective will be measured by the number of visits to app in an interval time and the number of new user engagements throughout the time. 
 ## Backlog 
+
 ### Initiatives
 
 
