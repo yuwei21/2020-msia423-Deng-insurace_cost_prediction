@@ -16,7 +16,7 @@ Create an interative web application to predict health care costs given a user's
 - The sucess of the application from the business persective will be measured by the number of visits to app in an interval time and the number of new user engagements throughout the time. 
 ## Backlog 
 ### Initiatives
-####Initiative 1: Modelling
+**Initiative 1: Modelling**
 The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients by building regression models. It is also important to go deeply into what factors influence the charge of a specific patient. Besides, from the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. 
 ### Epics
 
