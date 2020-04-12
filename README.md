@@ -4,7 +4,7 @@
 
 - [Project Charter](#project-charter)
 - [Backlog](#backlog)
-- [Data Sources](#data-sources)
+- [Directory structure](#directory-structure)
 
 ## Project Charter
 ### Vision
@@ -19,10 +19,10 @@ Create an interative web application to predict health care costs given a user's
 The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients. It is also important to go deeply into what factors influence the charge of a specific patient. Besides, from the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
 ### Epics
 **Epic 1: Data Preparation** 
-- Story #1: Downloading the data files (red wine & white wine) from UCI Machine Learning Repository (1 pt) **(Planned for the next 2 weeks)**
+- Story #1: Downloading the data files (Medical Cost Personal Dataset) from Kaggle 
     - **Backlog**
-    - Link to data source:[https://archive.ics.uci.edu/ml/datasets/wine+quality]
-- Story #2: EDA and Data Cleaning (2 pts) **(Planned for the next 2 weeks)**
+    - Link to data source:[https://www.kaggle.com/mirichoi0218/insurance]
+- Story #2: Data Cleaning and EDA (2 pts) **(Planned for the next 2 weeks)**
     - **Backlog**
     - Conducting exploratory data analysis (variable structures, distribution of variables, etc.)
     - Performing data cleaning (null values, outliers, etc.)
@@ -52,6 +52,47 @@ The cost of treatment of each patient depends on many factors: age, type of clin
     - **Backlog**
 
 
-## Data Sources
+## Directory structure 
 
+```
+├── README.md                         <- You are here
+├── api
+│   ├── static/                       <- CSS, JS files that remain static
+│   ├── templates/                    <- HTML (or other code) that is templated and changes based on a set of inputs
+│   ├── boot.sh                       <- Start up script for launching app in Docker container.
+│   ├── Dockerfile                    <- Dockerfile for building image to run app  
+│
+├── config                            <- Directory for configuration files 
+│   ├── local/                        <- Directory for keeping environment variables and other local configurations that *do not sync** to Github 
+│   ├── logging/                      <- Configuration of python loggers
+│   ├── flaskconfig.py                <- Configurations for Flask API 
+│
+├── data                              <- Folder that contains data used or generated. Only the external/ and sample/ subdirectories are tracked by git. 
+│   ├── external/                     <- External data sources, usually reference data,  will be synced with git
+│   ├── sample/                       <- Sample data used for code development and testing, will be synced with git
+│
+├── deliverables/                     <- Any white papers, presentations, final work products that are presented or delivered to a stakeholder 
+│
+├── docs/                             <- Sphinx documentation based on Python docstrings. Optional for this project. 
+│
+├── figures/                          <- Generated graphics and figures to be used in reporting, documentation, etc
+│
+├── models/                           <- Trained model objects (TMOs), model predictions, and/or model summaries
+│
+├── notebooks/
+│   ├── archive/                      <- Develop notebooks no longer being used.
+│   ├── deliver/                      <- Notebooks shared with others / in final state
+│   ├── develop/                      <- Current notebooks being used in development.
+│   ├── template.ipynb                <- Template notebook for analysis with useful imports, helper functions, and SQLAlchemy setup. 
+│
+├── reference/                        <- Any reference material relevant to the project
+│
+├── src/                              <- Source data for the project 
+│
+├── test/                             <- Files necessary for running model tests (see documentation below) 
+│
+├── app.py                            <- Flask wrapper for running the model 
+├── run.py                            <- Simplifies the execution of one or more of the src scripts  
+├── requirements.txt                  <- Python package dependencies 
+```
 
