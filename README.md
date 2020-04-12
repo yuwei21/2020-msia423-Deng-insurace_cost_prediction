@@ -65,9 +65,8 @@ From the perspective of insurance companies, the insurance company must collect 
     - **Backlog**
 - Story 3: Test web applications (8 pts) 
     - **Backlog**
-    - Unit Testing, Configured reproducibility tests, etc. 
-    
-### Epic 3: Final Presentation**  
+    - Unit Testing, Configured reproducibility tests, etc.     
+### Epic 3: Final Presentation 
 - Story 1: Presentation slides (4 pts)
     - **Backlog**
 
