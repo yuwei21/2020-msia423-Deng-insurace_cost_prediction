@@ -18,57 +18,35 @@ Create an interative web application to predict health care costs given a user's
 ### Initiative 1
 The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients by building regression models. It is also important to go deeply into what factors influence the charge of a specific patient. 
 ### Epic 1: Create and test models 
-- Story 1: Downloading the data files (Medical Cost Personal Dataset) from Kaggle (0 pts) **(Completed)** 
+- Story 1: Download the data files (Medical Cost Personal Dataset) from Kaggle (0 pts) **(Completed)** 
     -**Backlog**
     - Link to data source:[https://www.kaggle.com/mirichoi0218/insurance]
 - Story 2: Perform Early Exploratory Analysis (4 pts) **(Planned for the next 2 weeks)**
     - **Backlog**
-    - Conducting data cleaning and EDA
+    - Conduct data cleaning and EDA
         - Data fromat (Variable structure) 
         - Checking missing values 
         - Feature engineering
 - Story 3: Model Fitting and Selection **(Planned for the next 2 weeks)**
     - **Backlog**
     - Building regression models on randomly selected training data using Linear Regression, Random Forest and Gradient       Boosting (4 pts)
-    - Tuning models to optimize performance 
-    - Assessing and comparing models based on performance metrics (RMSE, R-Squared) on testing data (2 pts) 
+    - Tune models to optimize performance 
+    - Assess and comparing models based on performance metrics (RMSE, R-Squared) on testing data (2 pts) 
 - Story 4: Create Documentation for Models 
     - **Icebox**
 ### Epic 2: Exploring additional models 
 - Story 1: Build models like Neural Networks
     - **Icebox**
 - Story 2: Conducting Unsupervised Learning
-### Epic 3
-    
- 
- 
-
-
-
-
-
+    - **Icebox**
+    - Perform clustering to explore the relationship between charges and predictors
+- Story 3: Include New Features
+    - **Icebox**
+    - Include the interaction term of features (e.g. obese * smoker, etc.) 
 ### Initiative 2: Web Application
-Besides, from the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
+From the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
 ### Epics
-**Epic 1: Data Preparation** 
-- Story #1: Downloading the data files (Medical Cost Personal Dataset) from Kaggle (0 pts) **(Completed)** 
-    - **Backlog**
-    - Link to data source:[https://www.kaggle.com/mirichoi0218/insurance]
-- Story #2: Data Cleaning and EDA (4 pts) **(Planned for the next 2 weeks)**
-    - **Backlog**
-    - Conducting data cleaning and exploratory data analysis (feature engineering, variable structures, etc.)
-    - Performing data cleaning (null values, outliers, etc.)
-    
-**Epic 2: Modeling and Model Selection** 
-- Story #1: Building classification models on randomly selected training data using Random Forest, XGBoost, and Neural Networks (4 pts) **(Planned for the next 2 weeks)**
-    - **Backlog**
-- Story #2: Comparing models based on performance metrics (Accuracy) on testing data (2 pts) **(Planned for the next 2 weeks)**
-    - **Backlog**
-- Story #3: Exploring additional models (e.g. CNN, SVM)
-    -   **Icebox**
-- Story #4: Reviewing models with QA partner (4 pts)
-    - **Backlog**
-    
+
 **Epic 3: Online Deployment and Testing** 
 - Story #1: Web app UI design (8 pts)
     - **Backlog**
