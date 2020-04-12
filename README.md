@@ -16,15 +16,18 @@ Create an interative web application to predict health care costs given a user's
 - The sucess of the application from the business persective will be measured by the number of visits to app in an interval time and the number of new user engagements throughout the time. 
 ## Backlog 
 ### Initiatives
-The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients. It is also important to go deeply into what factors influence the charge of a specific patient. Besides, from the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
+**Initiative 1: Modelling**
+The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients by building regression models. It is also important to go deeply into what factors influence the charge of a specific patient. Besides, from the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the predictive model also helps insurance companies to have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. 
+**Initiative 2: Web Application**
+The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
 ### Epics
 **Epic 1: Data Preparation** 
-- Story #1: Downloading the data files (Medical Cost Personal Dataset) from Kaggle 
+- Story #1: Downloading the data files (Medical Cost Personal Dataset) from Kaggle (0 pts) **(Completed)** 
     - **Backlog**
     - Link to data source:[https://www.kaggle.com/mirichoi0218/insurance]
-- Story #2: Data Cleaning and EDA (2 pts) **(Planned for the next 2 weeks)**
+- Story #2: Data Cleaning and EDA (4 pts) **(Planned for the next 2 weeks)**
     - **Backlog**
-    - Conducting exploratory data analysis (variable structures, distribution of variables, etc.)
+    - Conducting exploratory data analysis (feature engineering, variable structures, etc.)
     - Performing data cleaning (null values, outliers, etc.)
     
 **Epic 2: Modeling and Model Selection** 
