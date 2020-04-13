@@ -17,17 +17,17 @@ Create an interative web application to predict health care costs given a user's
 ## Backlog 
 ### Initiative 1
 The cost of treatment of each patient depends on many factors: age, type of clinic, city of residence, and so on. The aim of this project is to use these information to obtain an approximation as to what will be the health care costs of the patients and make a conclusion about the health of patients by building regression models. It is also important to go deeply into what factors influence the charge of a specific patient. 
-### Epic 1: Create and test models **(Planned for the next 2 weeks)**
-- Story 1: Download the data files (Medical Cost Personal Dataset) from Kaggle (0 pts) 
+### Epic 1: Create and test models
+- Story 1: Download the data files (Medical Cost Personal Dataset) from Kaggle (0 pts)  **(Planned for the next 2 weeks)** 
     -**Backlog**
     - Link to data source:[https://www.kaggle.com/mirichoi0218/insurance]
-- Story 2: Perform Early Exploratory Analysis (4 pts) 
+- Story 2: Perform Early Exploratory Analysis (4 pts)  **(Planned for the next 2 weeks)**
     - **Backlog**
     - Conduct data cleaning and EDA
         - Data fromat (Variable structure) 
         - Checking missing values 
         - Feature engineering
-- Story 3: Model Fitting and Selection (8 pts)
+- Story 3: Model Fitting and Selection (8 pts)  **(Planned for the next 2 weeks)**
     - **Backlog**
     - Building regression models on randomly selected training data using Linear Regression, Random Forest and Gradient       Boosting (4 pts)
     - Tune models to optimize performance 
