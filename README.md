@@ -31,12 +31,12 @@ The cost of treatment of each patient depends on many factors: age, type of clin
         - Tune models to optimize performance 
         - Assess and comparing models based on performance metrics (RMSE, R-Squared) on testing data 
     - Story 4: Create Documentation for Models 
-    - Epic 2: Exploring additional models 
-        - Story 1: Build models like Neural Networks
-        - Story 2: Conducting Unsupervised Learning
-            - Perform clustering to explore the relationship between charges and predictors
-        - Story 3: Create New Features
-            - Include interaction terms of features (e.g. obese * smoker, etc.) 
+ - Epic 2: Exploring additional models 
+    - Story 1: Build models like Neural Networks
+    - Story 2: Conducting Unsupervised Learning
+        - Perform clustering to explore the relationship between charges and predictors
+    - Story 3: Create New Features
+        - Include interaction terms of features (e.g. obese * smoker, etc.) 
 #### Initiative 2: Web Application
 From the perspective of insurance companies, the insurance company must collect more premiums than the amount paid to the insured person. Thus, the web appplication helps insurance companies have a better understanding of the health costs of their potential customers and set premiums accordingly to make profits. People can also have a fair idea of their health condition and health care costs. The final web application would allow user to input values of the most important factors that affect the charge of patients and return the predicted insurance costs.  
 - Epic 1: Brainstrom Core Functionality 
