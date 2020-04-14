@@ -43,17 +43,17 @@ From the perspective of insurance companies, the insurance company must collect 
     - Story 1: Create history page, etc. 
 - Epic 2: Create App Front End 
     - Story 1: Create web app using HTML, CSS, etc. 
-        - Create landing page
+        - Create landing page, etc.
     - Story 2: Improve Web app UI design 
-    - Story 3: Test Web Applications (8 pts)
+    - Story 3: Test Web Applications 
     - Story 4: Document Web Applications 
 - Epic 3: Online Deployment 
     - Story 1: Deploying web app (Flask) on AWS 
     - Story 2: Creating an RDS instance 
-    - Story 3: Test web applications (8 pts) 
+    - Story 3: Test web applications 
         - Unit Testing, Configured reproducibility tests, etc.     
 - Epic 4: Final Presentation 
-    - Story 1: Presentation slides (4 pts)
+    - Story 1: Presentation slides 
         
 ## Backlog
 1. "Initiative1.epic1.story1" (0 pts) - PLANNED
