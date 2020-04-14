@@ -30,7 +30,7 @@ The cost of treatment of each patient depends on many factors: age, type of clin
 - Story 3: Model Fitting and Selection (8 pts) **(Planned for the next 2 weeks)**
     - **Backlog**
     - Building regression models on randomly selected training data using Linear Regression, Random Forest and Gradient       Boosting (4 pts)
-    - Tune models to optimize performance 
+    - Tune models to optimize performance (4 pts)
     - Assess and comparing models based on performance metrics (RMSE, R-Squared) on testing data (2 pts) 
 - Story 4: Create Documentation for Models 
     - **Icebox**
