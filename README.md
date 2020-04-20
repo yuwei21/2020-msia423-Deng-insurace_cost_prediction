@@ -1,10 +1,14 @@
 # MSiA423 Repository
 
 <!-- toc -->
-
+- [Team Member] (#team-member)
 - [Project Charter](#project-charter)
 - [Backlog](#backlog)
 - [Directory structure](#directory-structure)
+
+## Team Member
+- Developer : Yuwei Deng
+- QA: Lang Qin
 
 ## Project Charter
 ### Vision
