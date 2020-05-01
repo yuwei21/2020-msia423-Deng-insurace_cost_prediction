@@ -54,7 +54,8 @@ From the perspective of insurance companies, the insurance company must collect 
 - Epic 3: Online Deployment 
     - Story 1: Deploying web app (Flask) on AWS 
     - Story 2: Creating an RDS instance 
-    - Story 3: Test web applications 
+    - Story 3: Use an S3 bucket to store the data. 
+    - Story 4: Test web applications 
         - Unit Testing, Configured reproducibility tests, etc.     
 - Epic 4: Final Presentation 
     - Story 1: Presentation slides 
@@ -69,7 +70,8 @@ From the perspective of insurance companies, the insurance company must collect 
 7. "Initiative2.epic3.story1" (8 pts)
 8. "Initiative2.epic3.story2" (4 pts)
 9. "Initiative2.epic3.story3"  (8 pts)
-10. "Initiative2.epic4.story1" (4 pts)
+10. "Initiative2.epic3.story4"  (8 pts)
+11. "Initiative2.epic4.story1" (4 pts)
 
 ### Icebox
 1. "Initiative1.epic1.story1"
