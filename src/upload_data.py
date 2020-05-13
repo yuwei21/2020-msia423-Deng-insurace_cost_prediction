@@ -23,7 +23,7 @@ def upload_data(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Upload data to S3")
     # add argument
-    parser.add_argument("--input_file_path", type=str, default = "data/insurance.csv", help="local path for uploaded file")
+    parser.add_argument("--input_file_path", type=str, default = "../data/insurance.csv", help="local path for uploaded file")
     parser.add_argument("--bucket_name", help="s3 bucket name")
     parser.add_argument("--output_file_path", help="output path for uploaded file")
 
