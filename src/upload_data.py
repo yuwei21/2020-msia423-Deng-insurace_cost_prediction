@@ -4,7 +4,7 @@ import logging
 from botocore.exceptions import ClientError
 import os
 
-logging.basicConfig(level=logging.INFO, filename="upload_logfile", filemode="a+",format="%(asctime)-15s %(levelname)-8s %(message)s")
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 s3_client = boto3.client("s3",aws_access_key_id = os.environ.get("aws_access_key_id"),aws_secret_access_key= os.environ.get("aws_secret_access_key"))
 

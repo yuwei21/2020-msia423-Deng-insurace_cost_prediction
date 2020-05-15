@@ -10,7 +10,7 @@ from helpers import create_connection, get_session
 import argparse
 
 
-logging.basicConfig(level=logging.DEBUG, filename="model_logfile", filemode="a+",format="%(asctime)-15s %(levelname)-8s %(message)s")
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 logger = logging.getLogger('insurance-db')
 Base = declarative_base()
 

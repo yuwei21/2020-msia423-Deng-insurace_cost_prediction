@@ -1,8 +1,9 @@
 import pandas as pd 
 import logging
-import sys, os
+import sys
+import os
 
-logging.basicConfig(level=logging.DEBUG, filename="download_logfile", filemode="a+",format="%(asctime)-15s %(levelname)-8s %(message)s")
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 def download_data (read_path, save_path):
