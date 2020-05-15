@@ -48,8 +48,8 @@ docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,t
 
 ### Step 5: Create a database for model serving. (`src/sql/model.py`)
 Create a database for model serving. 
-- You need to update the .mysqlconfig file.
-    - Enter `config/.mysqlconfig`
+- You need to update the .mysqlconfig file to configure the RDS credential. 
+    - Enter `vi config/.mysqlconfig`
     - Set `MYSQL_USER` to the username you used to create the database server
     - Set `MYSQL_PASSWORD` to the password you used to create the database server
     - Set `MYSQL_HOST` to be the RDS instance endpoint
