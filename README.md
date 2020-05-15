@@ -12,53 +12,52 @@
 - QA: Lang Qin
 
 ## Midproject Checkpoint
-### Step 1: Clone Git Repository 
-    
-    ```bash
-    git clone "https://github.com/yuwei21/2020-msia423-Deng-insurace_cost_prediction.git"
-    cd 2020-msia423-Deng-insurace_cost_prediction
-    git checkout midproject
-    ```
 
+### Step 1: Clone Git Repository 
+```bash
+git clone "https://github.com/yuwei21/2020-msia423-Deng-insurace_cost_prediction.git"
+cd 2020-msia423-Deng-insurace_cost_prediction
+git checkout midproject
+```
 *NOTE: You will need to be on the Northwestern VPN for the subsequent steps
-### Step 2: Build a docker image
-    
-    ```bash
-    docker build -t insurance .
-    ```
-    
-### Step 3: src/download_data.py
-Download the data from a public S3 bucket. 
+
+### Step 2: Build a docker image    
+```bash
+docker build -t insurance .
+```
+### Step 3: Download data from a public S3 bucket. (`src/download_data.py`)
 - Data source: https://www.kaggle.com/mirichoi0218/insurance
 - File Name: insurance.csv
 - This dataset has been uploaded to a public S3 and is available for download.
-- Run the following command: 
-    
-    ```bash
-    docker run --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/download_data.py
-    ```
+- Run the following command:     
+```bash
+docker run --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/download_data.py
+```
 - The default path to save the data is "data/insurance.csv". The data is stored in the data folder. 
-### Step 4: src/upload_data.py
-Write raw data to your S3 bucket. 
+
+### Step 4: Write raw data to your S3 bucket. (`src/upload_data.py`)
 - You need to update the config.env file to configure the AWS credential.
     - Enter `vi config/config.env` 
-    - Set 'aws_access_key_id' to the aws access key you used to create your S3 bucket. 
-    - Set 'aws_secret_access_key' to the aws secret access key you used to create your S3 bucket. 
-- Run the following command:
-    
-    ```bash
-    docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3             src/upload_data.py --bucket_name "nw-yuwei-s3"
-    ```
+    - Set `aws_access_key_id` to the aws access key you used to create your S3 bucket. 
+    - Set `aws_secret_access_key` to the aws secret access key you used to create your S3 bucket. 
+- Run the following command:  
+```bash
+docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3             src/upload_data.py --bucket_name "nw-yuwei-s3"
+```
 - Parameters to specified: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
-### Step 5: src/sql/model.py
+
+### Step 5: Create a database for model serving. (`src/sql/model.py`)
 Create a database for model serving. 
 - You need to update the .mysqlconfig file.
     - Enter `config/.mysqlconfig`
-    - Set 'MYSQL_USER' to the username you used to create the database server
-    - Set 'MYSQL_PASSWORD' to the password you used to create the database server
-    - Set 'MYSQL_HOST' to be the RDS instance endpoint
-    - Set 'MYSQL_HOST' to be 3306
-- Run the following command: docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/sql/model.py --RDS True 
+    - Set `MYSQL_USER` to the username you used to create the database server
+    - Set `MYSQL_PASSWORD` to the password you used to create the database server
+    - Set `MYSQL_HOST` to be the RDS instance endpoint
+    - Set `MYSQL_PORT` to be 3306
+- Run the following command: 
+```bash
+docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/sql/model.py --RDS True 
+```
 - Parameters to specified: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. 
 
 ## Project Charter
