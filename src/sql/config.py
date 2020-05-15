@@ -1,7 +1,7 @@
 from os import path
 
 # Getting the parent directory of this file. That will function as the project home.
-PROJECT_HOME = path.dirname(path.dirname(path.abspath(__file__)))
+PROJECT_HOME = path.dirname(path.dirname(path.dirname(path.abspath(__file__))))
 
 # App config
 APP_NAME = "insurance"

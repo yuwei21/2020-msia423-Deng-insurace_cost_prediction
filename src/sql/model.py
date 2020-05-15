@@ -8,7 +8,7 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from helpers import create_connection, get_session
 import argparse
-
+import config
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 logger = logging.getLogger('insurance-db')
@@ -51,7 +51,7 @@ def get_engine_string(RDS = False):
         logging.debug("engine string:{}".format(engine_string))
         return  engine_string
     else:
-        return 'sqlite:///Insurance_Predict.db'
+        return config.SQLALCHEMY_DATABASE_URI
 
 
 
