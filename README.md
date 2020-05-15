@@ -44,7 +44,7 @@ docker run --mount type=bind,source="$(pwd)"/data,target=/app/data insurance pyt
 ```bash
 docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/upload_data.py --bucket_name "nw-yuwei-s3"
 ```
-- Parameters to specified: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
+- Parameters: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
 
 ### Step 5: Create a database for model serving. (`src/sql/model.py`)
 Create a database for model serving. 
@@ -58,7 +58,7 @@ Create a database for model serving.
 ```bash
 docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/sql/model.py --RDS True 
 ```
-- Parameters to specified: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. 
+- Parameters: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. 
 
 ## Project Charter
 ### Vision
