@@ -2,7 +2,7 @@
 
 <!-- toc -->
 - [Team Member](#team-member)
-- [Midproject Checkpoint] (#Midproject-checkpoint)
+- [Midproject Checkpoint](#Midproject-checkpoint)
 - [Project Charter](#project-charter)
 - [Backlog](#backlog)
 - [Directory structure](#directory-structure)
@@ -13,15 +13,18 @@
 
 ## Midproject Checkpoint
 ### Step 1: Clone Git Repository 
+    
     ```bash
     git clone "https://github.com/yuwei21/2020-msia423-Deng-insurace_cost_prediction.git"
     cd 2020-msia423-Deng-insurace_cost_prediction
     git checkout midproject
     ```
+
 *NOTE: You will need to be on the Northwestern VPN for the subsequent steps
 ### Step 2: Build a docker image
+    
     ```bash
-    docker build -t sportco .
+    docker build -t insurance .
     ```
     
 ### Step 3: src/download_data.py
@@ -42,8 +45,9 @@ Write raw data to your S3 bucket.
     - Set 'aws_access_key_id' to the aws access key you used to create your S3 bucket. 
     - Set 'aws_secret_access_key' to the aws secret access key you used to create your S3 bucket. 
 - Run the following command:
+    
     ```bash
-    docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3         src/upload_data.py --bucket_name "nw-yuwei-s3"
+    docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3             src/upload_data.py --bucket_name "nw-yuwei-s3"
     ```
 - Parameters to specified: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
 ### Step 5: src/sql/model.py
