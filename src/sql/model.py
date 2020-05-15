@@ -3,18 +3,14 @@ import pandas as pd
 import os
 import sys
 import logging
-import logging.config
 from sqlalchemy import Column, Integer, String, MetaData, create_engine, Text, Float
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-import config
 from helpers import create_connection, get_session
 import argparse
 
 
-logging.basicConfig(level=logging.DEBUG, filename="logfile", filemode="a+",
-                        format="%(asctime)-15s %(levelname)-8s %(message)s")
-
+logging.basicConfig(level=logging.DEBUG, filename="model_logfile", filemode="a+",format="%(asctime)-15s %(levelname)-8s %(message)s")
 logger = logging.getLogger('insurance-db')
 Base = declarative_base()
 
@@ -55,7 +51,7 @@ def get_engine_string(RDS = False):
         logging.debug("engine string:{}".format(engine_string))
         return  engine_string
     else:
-        return 'sqlite:///insurance.db'
+        return 'sqlite:///Insurance_Predict.db'
 
 
 
@@ -77,7 +73,7 @@ def create_db(args,engine=None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Create defined tables in database")
-    parser.add_argument("--RDS", default="False",help="True if want to create in RDS else None")
+    parser.add_argument("--RDS", default="False",help="True if create in RDS otherwise None")
     args = parser.parse_args()
     create_db(args)
 

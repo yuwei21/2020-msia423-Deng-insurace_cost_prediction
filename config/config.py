@@ -11,7 +11,7 @@ DEBUG = True
 LOGGING_CONFIG = path.join(PROJECT_HOME, 'config//logging/logging.conf')
 
 # Database connection config
-DATABASE_PATH = path.join(PROJECT_HOME, 'data/insurance.db')
+DATABASE_PATH = path.join(PROJECT_HOME, 'data/Insurance_Predict.db')
 SQLALCHEMY_DATABASE_URI = 'sqlite:////{}'.format(DATABASE_PATH)
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 SQLALCHEMY_ECHO = False  # If true, SQL for queries made will be printed

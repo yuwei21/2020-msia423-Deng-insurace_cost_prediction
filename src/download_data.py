@@ -1,7 +1,8 @@
 import pandas as pd 
 import logging
+import sys, os
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG, filename="download_logfile", filemode="a+",format="%(asctime)-15s %(levelname)-8s %(message)s")
 logger = logging.getLogger(__name__)
 
 def download_data (read_path, save_path):
@@ -21,5 +22,5 @@ def download_data (read_path, save_path):
         
 if __name__ == "__main__":
     url = "https://s3-public-nw.s3.us-east-2.amazonaws.com/insurance-source/insurance.csv"
-    download_data(url, "data/insurance.csv")
+    download_data(url,"data/insurance.csv")
     

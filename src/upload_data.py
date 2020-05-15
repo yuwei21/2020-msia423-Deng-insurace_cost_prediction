@@ -2,10 +2,11 @@ import argparse
 import boto3
 import logging
 from botocore.exceptions import ClientError
+import os
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO, filename="upload_logfile", filemode="a+",format="%(asctime)-15s %(levelname)-8s %(message)s")
 logger = logging.getLogger(__name__)
-s3_client = boto3.client("s3")
+s3_client = boto3.client("s3",aws_access_key_id = os.environ.get("aws_access_key_id"),aws_secret_access_key= os.environ.get("aws_secret_access_key"))
 
 def upload_data(args):
     """upload raw data downloaded in the local folder to an S3 bucket of user input
@@ -25,7 +26,7 @@ if __name__ == "__main__":
     # add argument
     parser.add_argument("--input_file_path", type=str, default = "data/insurance.csv", help="local path for uploaded file")
     parser.add_argument("--bucket_name", help="s3 bucket name")
-    parser.add_argument("--output_file_path", help="output path for uploaded file")
+    parser.add_argument("--output_file_path",type=str, default = "data/insurance.csv", help="output path for uploaded file")
 
     args = parser.parse_args()
     upload_data(args)
