@@ -46,8 +46,7 @@ docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,t
 ```
 - Parameters: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
 
-### Step 5: Create a database for model serving. (`src/sql/model.py`)
-Create a database for model serving. 
+### Step 5: Create a database for model serving. (`src/sql/model.py`) 
 - You need to update the .mysqlconfig file to configure the RDS credential. 
     - Enter `vi config/.mysqlconfig`
     - Set `MYSQL_USER` to the username you used to create the database server
@@ -58,7 +57,7 @@ Create a database for model serving.
 ```bash
 docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/sql/model.py --RDS True 
 ```
-- Parameters: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. 
+- Parameters: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. The local database is stored in the data folder. 
 
 ## Project Charter
 ### Vision
