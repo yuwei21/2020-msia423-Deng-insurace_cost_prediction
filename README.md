@@ -42,7 +42,7 @@ docker run --mount type=bind,source="$(pwd)"/data,target=/app/data insurance pyt
     - Set `aws_secret_access_key` to the aws secret access key you used to create your S3 bucket. 
 - Run the following command:  
 ```bash
-docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3             src/upload_data.py --bucket_name "nw-yuwei-s3"
+docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/upload_data.py --bucket_name "nw-yuwei-s3"
 ```
 - Parameters to specified: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
 
