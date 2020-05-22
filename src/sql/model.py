@@ -44,10 +44,9 @@ def get_engine_string(RDS = False):
         password = os.environ.get("MYSQL_PASSWORD")
         host = os.environ.get("MYSQL_HOST")
         port = os.environ.get("MYSQL_PORT")
-        DATABASE_NAME = 'msia423_db'
+        DATABASE_NAME = os.environ.get("DATABASE_NAME")
         engine_string = "{}://{}:{}@{}:{}/{}". \
             format(conn_type, user, password, host, port, DATABASE_NAME)
-        # print(engine_string)
         logging.debug("engine string:{}".format(engine_string))
         return  engine_string
     else:
@@ -55,20 +54,23 @@ def get_engine_string(RDS = False):
 
 
 
-def create_db(args,engine=None):
+def create_db(args):
     """Creates a database with the data models inherited from `Base` (Insurance).
     Args:
-        engine (:py:class:`sqlalchemy.engine.Engine`, default None): SQLAlchemy connection engine.
+        RDS: True if create database in RDS otherwise None
     Returns:
         None
     """
-    if engine is None:
+    try:
         RDS = eval(args.RDS)
         logger.info("RDS:%s",RDS)
-        engine = sql.create_engine(get_engine_string(RDS = RDS))
+        engine=sql.create_engine(get_engine_string(RDS = RDS))
+    except Exception as e:
+	    logger.error("Failed to create a database")
+	    logger.error(e)
 
     Base.metadata.create_all(engine)
-    logging.info("database created")
+    logging.info("database created successfully")
 
 
 if __name__ == "__main__":

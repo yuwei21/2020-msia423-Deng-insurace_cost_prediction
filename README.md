@@ -53,6 +53,7 @@ docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,t
     - Set `MYSQL_PASSWORD` to the password you used to create the database server
     - Set `MYSQL_HOST` to be the RDS instance endpoint
     - Set `MYSQL_PORT` to be 3306
+    - Set `DATABASE_NAME` to be the database name you used to create the database server
 - Run the following command: 
 ```bash
 docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/sql/model.py --RDS True 
