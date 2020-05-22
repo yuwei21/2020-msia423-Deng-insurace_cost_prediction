@@ -19,6 +19,7 @@ def upload_data(args):
         s3_client.upload_file(args.input_file_path,args.bucket_name,args.output_file_path)
         logger.info("Uploaded the file from " + args.input_file_path + " to " + args.bucket_name + " as " + args.output_file_path)
     except boto3.exceptions.S3UploadFailedError as e:
+        logger.error("Unable to upload file to S3 bucket.")
         logger.error(e)
 
 if __name__ == "__main__":

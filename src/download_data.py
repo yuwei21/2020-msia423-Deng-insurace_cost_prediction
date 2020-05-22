@@ -19,6 +19,7 @@ def download_data (read_path, save_path):
         df.to_csv(save_path)
         logger.info("Download file from %s to %s", read_path, save_path)
     except Exception as e:
+        logger.error("Unable to download file from public S3 bucket.")
         logger.error(e)
         
 if __name__ == "__main__":
