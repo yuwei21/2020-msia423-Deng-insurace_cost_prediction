@@ -11,7 +11,7 @@
 - [Backlog](#backlog)
 - [Directory structure](#directory-structure)
 
-<<<<<<< midproject
+
 ## Team Member
 - Developer : Yuwei Deng
 - QA: Lang Qin
@@ -65,8 +65,6 @@ docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data
 ```
 - Parameters: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. The local database is stored in the data folder. 
 
-=======
->>>>>>> master
 ## Project Charter
 ### Vision
 Help people gain a fair idea of the cost of their treatments billed by insurance companies. Help insurance companies determine the appropriate premium they should collect to make profits. 
