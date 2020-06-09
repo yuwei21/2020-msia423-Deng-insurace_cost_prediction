@@ -173,6 +173,7 @@ docker run --env-file=config/config.env --mount type=bind,source="$(pwd)",target
 docker run --mount type=bind,source="$(pwd)",target=/app/ insurance run-reproducibility-tests.sh
 ```
 ### Step 5: Run the Flask App in Docker 
+- Build a docker image for app
 ```bash
 docker build -f app/Dockerfile -t cost .
 ```
