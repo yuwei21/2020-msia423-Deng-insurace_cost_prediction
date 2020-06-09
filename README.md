@@ -183,6 +183,11 @@ docker run -t -i -p 5000:5000 --name insurance cost
 ```
 - The prediction results and inputs of users would be saved in the RDS database if you created an RDS database from step3 and run the following command:
 ```bash
+export SQLALCHEMY_DATABASE_URI = '{dialect}://{user}:{pw}@{host}:{port}/{db}'
+docker run -e SQLALCHEMY_DATABASE_URI -t -i -p 5000:5000 --name insurance cost 
+```
+Or you can run the following command if you have filled in the config file:
+```bash
 docker run --env-file=config/.mysqlconfig -t -i -p 5000:5000 --name insurance cost 
 ```
 - You should now be able to access the app at http://0.0.0.0:5000/ in your browser.
