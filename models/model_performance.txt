@@ -1,0 +1,2 @@
+MSE train data: 3751654.609, MSE test data: 19542877.684
+R2 train data: 0.975, R2 test data: 0.850

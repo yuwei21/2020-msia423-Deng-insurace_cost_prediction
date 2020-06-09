@@ -1,69 +1,16 @@
 # MSiA423 Repository
 
-## Team Member
-- Developer : Yuwei Deng
-- QA: Lang Qin
-
 <!-- toc -->
 - [Team Member](#team-member)
-- [Midproject Checkpoint](#Midproject-checkpoint)
 - [Project Charter](#project-charter)
 - [Backlog](#backlog)
+- [Documentation](#documentation)
+- [Midproject Checkpoint](#Midproject-checkpoint)
 - [Directory structure](#directory-structure)
-
 
 ## Team Member
 - Developer : Yuwei Deng
 - QA: Lang Qin
-
-## Midproject Checkpoint
-
-### Step 1: Clone Git Repository 
-```bash
-git clone "https://github.com/yuwei21/2020-msia423-Deng-insurace_cost_prediction.git"
-cd 2020-msia423-Deng-insurace_cost_prediction
-git checkout midproject
-```
-*NOTE: You will need to be on the Northwestern VPN for the subsequent steps
-
-### Step 2: Build a docker image    
-```bash
-docker build -t insurance .
-```
-### Step 3: Download data from a public S3 bucket. (`src/download_data.py`)
-- Data source: https://www.kaggle.com/mirichoi0218/insurance
-- File Name: insurance.csv
-- This dataset has been uploaded to a public S3 and is available for download.
-- Run the following command:     
-```bash
-docker run --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/download_data.py
-```
-- The default path to save the data is "data/insurance.csv". The data is stored in the data folder. 
-
-### Step 4: Write raw data to your S3 bucket. (`src/upload_data.py`)
-- You need to update the config.env file to configure the AWS credential.
-    - Enter `vi config/config.env` 
-    - Set `aws_access_key_id` to the aws access key you used to create your S3 bucket. 
-    - Set `aws_secret_access_key` to the aws secret access key you used to create your S3 bucket. 
-- Run the following command:  
-```bash
-docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/upload_data.py --bucket_name "nw-yuwei-s3"
-```
-- Parameters: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
-
-### Step 5: Create a database for model serving. (`src/sql/model.py`) 
-- You need to update the .mysqlconfig file to configure the RDS credential. 
-    - Enter `vi config/.mysqlconfig`
-    - Set `MYSQL_USER` to the username you used to create the database server
-    - Set `MYSQL_PASSWORD` to the password you used to create the database server
-    - Set `MYSQL_HOST` to be the RDS instance endpoint
-    - Set `MYSQL_PORT` to be 3306
-    - Set `DATABASE_NAME` to be the database name you used to create the database server
-- Run the following command: 
-```bash
-docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/sql/model.py --RDS True 
-```
-- Parameters: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. The local database is stored in the data folder. 
 
 ## Project Charter
 ### Vision
@@ -86,7 +33,7 @@ The cost of treatment of each patient depends on many factors: age, type of clin
             - Checking missing values 
             - Feature engineering
     - Story 3: Model Fitting and Selection 
-        - Building regression models on randomly selected training data using Linear Regression, Random Forest and Gradient       Boosting 
+        - Building regression models on randomly selected training data using Linear Regression, Random Forest and Gradient Boosting 
         - Tune models to optimize performance 
         - Assess and comparing models based on performance metrics (RMSE, R-Squared) on testing data 
     - Story 4: Create Documentation for Models 
@@ -179,4 +126,118 @@ From the perspective of insurance companies, the insurance company must collect 
 ├── run.py                            <- Simplifies the execution of one or more of the src scripts  
 ├── requirements.txt                  <- Python package dependencies 
 ```
+
+## Documentation 
+
+### Step 1: Clone Git Repository 
+```bash
+git clone "https://github.com/yuwei21/2020-msia423-Deng-insurace_cost_prediction.git"
+cd 2020-msia423-Deng-insurace_cost_prediction
+```
+
+### Step 2: Build a docker image for model pipeline
+```bash
+docker build -f Dockerfile_bash -t insurance .
+```
+
+### Step 3: Execute the model pipeline
+- A local database would be created: 
+```bash
+docker run --mount type=bind,source="$(pwd)",target=/app/ insurance run-pipeline.sh
+```
+
+- (Optional) If you want to create a RDS database, then you need to update the 
+.mysqlconfig file to configure your RDS credential. Otherwise, you can skip this step and a local database would be created.  
+    - Enter `vi config/.mysqlconfig`
+    - Set `MYSQL_USER` to the username you used to create the database server
+    - Set `MYSQL_PASSWORD` to the password you used to create the database server
+    - Set `MYSQL_HOST` to be the RDS instance endpoint
+    - Set `MYSQL_PORT` to be 3306
+    - Set `DATABASE_NAME` to be the database name you used to create the database server
+
+```bash
+docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)",target=/app/ insurance run-rds.sh
+```
+- (Optional) If you want to upload the raw dataset to your S3 bucket, you need to update the config.env file to configure your AWS credential. Otherwise, you can skip this step.
+    - Enter `vi config/config.env` 
+    - Set `aws_access_key_id` to the aws access key you used to create your S3 bucket. 
+    - Set `aws_secret_access_key` to the aws secret access key you used to create your S3 bucket.
+    - Set  `bucket_name` to the bucket name you used to create your S3 bucket.
+
+```bash
+docker run --env-file=config/config.env --mount type=bind,source="$(pwd)",target=/app/ insurance run-aws-upload.sh
+```
+
+### Step 4: Run unit tests
+```bash
+docker run --mount type=bind,source="$(pwd)",target=/app/ insurance run-reproducibility-tests.sh
+```
+### Step 5: Run the Flask App in Docker 
+```bash
+docker build -f app/Dockerfile -t cost .
+```
+- The prediction results and inputs of users would be saved in the local database if you run the following command: 
+```bash
+docker run -t -i -p 5000:5000 --name insurance cost 
+```
+- The prediction results and inputs of users would be saved in the RDS database if you created an RDS database from step3 and run the following command:
+```bash
+docker run --env-file=config/.mysqlconfig -t -i -p 5000:5000 --name insurance cost 
+```
+- You should now be able to access the app at http://0.0.0.0:5000/ in your browser.
+- Once you are done with the app, you can terminate the container using ctrl-c and remove the container with the following command: 
+ ```bash
+docker rm -v insurance
+```
+
+
+
+## Midproject Checkpoint
+
+### Step 1: Clone Git Repository 
+```bash
+git clone "https://github.com/yuwei21/2020-msia423-Deng-insurace_cost_prediction.git"
+cd 2020-msia423-Deng-insurace_cost_prediction
+git checkout midproject
+```
+*NOTE: You will need to be on the Northwestern VPN for the subsequent steps
+
+### Step 2: Build a docker image    
+```bash
+docker build -t insurance .
+```
+### Step 3: Download data from a public S3 bucket. (`src/download_data.py`)
+- Data source: https://www.kaggle.com/mirichoi0218/insurance
+- File Name: insurance.csv
+- This dataset has been uploaded to a public S3 and is available for download.
+- Run the following command:     
+```bash
+docker run --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/download_data.py
+```
+- The default path to save the data is "data/insurance.csv". The data is stored in the data folder. 
+
+### Step 4: Write raw data to your S3 bucket. (`src/upload_data.py`)
+- You need to update the config.env file to configure the AWS credential.
+    - Enter `vi config/config.env` 
+    - Set `aws_access_key_id` to the aws access key you used to create your S3 bucket. 
+    - Set `aws_secret_access_key` to the aws secret access key you used to create your S3 bucket. 
+- Run the following command:  
+```bash
+docker run --env-file=config/config.env --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/upload_data.py --bucket_name "nw-yuwei-s3"
+```
+- Parameters: --bucket_name: Change the bucket_name to your bucket name. The default input file path and output file path are both 'data/insurance.csv'. You can feel free to change the output file path.(Please do not change the input file path.)
+
+### Step 5: Create a database for model serving. (`src/sql/model.py`) 
+- You need to update the .mysqlconfig file to configure the RDS credential. 
+    - Enter `vi config/.mysqlconfig`
+    - Set `MYSQL_USER` to the username you used to create the database server
+    - Set `MYSQL_PASSWORD` to the password you used to create the database server
+    - Set `MYSQL_HOST` to be the RDS instance endpoint
+    - Set `MYSQL_PORT` to be 3306
+    - Set `DATABASE_NAME` to be the database name you used to create the database server
+- Run the following command: 
+```bash
+docker run --env-file=config/.mysqlconfig --mount type=bind,source="$(pwd)"/data,target=/app/data insurance python3 src/sql/model.py --RDS True 
+```
+- Parameters: --RDS: True if you want to create a database in RDS, False if you want to create a local database. Default is False. The local database is stored in the data folder. 
 

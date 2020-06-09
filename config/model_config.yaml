@@ -1,0 +1,44 @@
+download_data:
+    download_data:
+        read_path: https://s3-public-nw.s3.us-east-2.amazonaws.com/insurance-source/insurance.csv
+        save_path: data/insurance.csv
+
+generate_features:
+    transform_features:
+        features_needed: ['sex', 'smoker','region']
+    
+    choose_features:
+        features: ['age', 'sex_male', 'bmi', 'children','smoker_yes', 'region_southwest', 'region_northwest', 'region_southeast']
+    
+    get_target:
+        target: charges
+
+EDA:
+    EDA: 
+        fea1: smoker_yes
+        fea2: sex_male
+        fea3: age
+        fea4: bmi
+        fea5: children
+        target: charges
+    
+train_model:
+    split_data: 
+        test_size: 0.2
+        seed: 15
+    random_forest:
+        n_estimators: 100
+        criterion: mse
+        random_state : 1
+        n_jobs: -1
+
+evaluate_model:
+    feature_importance:
+        save_fig: models/feature_importance.png
+
+
+
+
+
+
+
