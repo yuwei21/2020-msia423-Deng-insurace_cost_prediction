@@ -1,6 +1,6 @@
 download_data:
     download_data:
-        read_path: https://s3-public-nw.s3.us-east-2.amazonaws.com/insurance-source/insurance.csv
+        read_path: data/insurance.csv
         save_path: data/insurance.csv
 
 generate_features:

@@ -2,11 +2,16 @@ import pandas as pd
 import logging
 import sys
 import os
+import boto3
 import yaml
 import argparse
 
-logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+s3_client = boto3.client("s3",
+            aws_access_key_id = os.environ.get("aws_access_key_id"),
+            aws_secret_access_key= os.environ.get("aws_secret_access_key"))
 
 def download_data (read_path, save_path):
     """Download data from a public S3 bucket to local folder
@@ -17,8 +22,7 @@ def download_data (read_path, save_path):
     """
 
     try:
-        df = pd.read_csv(read_path, sep=",")
-        df.to_csv(save_path, index=False)
+        s3_client.download_file("nw-yuwei-s3", read_path, save_path)
         logger.info("Download file from %s to %s", read_path, save_path)
     except Exception as e:
         logger.error("Unable to download file from public S3 bucket.")

@@ -143,7 +143,9 @@ docker build -f Dockerfile_bash -t insurance .
 ### Step 3: Execute the model pipeline
 - A local database would be created: 
 ```bash
-docker run --mount type=bind,source="$(pwd)",target=/app/ insurance run-pipeline.sh
+export aws_access_key_id=<aws_acess_key_id>
+export aws_secret_access_key=<aws_secret_access_key>
+docker run -e aws_access_key_id -e aws_secret_access_key --mount type=bind,source="$(pwd)",target=/app/ insurance run-pipeline.sh
 ```
 
 - (Optional) If you want to create a RDS database, then you need to update the 
